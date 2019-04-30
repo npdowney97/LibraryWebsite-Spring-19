@@ -21,7 +21,7 @@ include_once '../objects/responsibility.php';
  $resTitle;
  $noteTitle;
 
- $result = $statusObj->getByLocation($_GET["name"]);
+ $result = $statusObj->getByDepartment($_GET["name"]);
 
  $statuses["status"] = array();
  $num = $result->num_rows;
@@ -60,7 +60,7 @@ include_once '../objects/responsibility.php';
 
     // tell the user no products found
     echo json_encode(
-        array("message" => "No statuses found or no one clocked in at location '$_GET[name]'.")
+        array("message" => "No statuses found or no one clocked in for department '$_GET[name]'.")
     );
  }
 

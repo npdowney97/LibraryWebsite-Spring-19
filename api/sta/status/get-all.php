@@ -41,7 +41,7 @@ include_once '../objects/responsibility.php';
      }
 
      $newRow = array(
-       "userID" => $row["FK_userID"],
+       "userID" => hash("sha256", $row["FK_userID"]),
        "location" => $locationTitle,
        "covering" => $coveringTitle,
        "responsibility" => $resTitle,
@@ -56,7 +56,7 @@ include_once '../objects/responsibility.php';
  }
  else {
    // set response code - 404 Not found
-    http_response_code(404);
+    http_response_code(204);
 
     // tell the user no products found
     echo json_encode(
